@@ -11,34 +11,50 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 public class Browser {
+    private static WebDriver driver;
 
-    public static WebDriver open(String name) {
+    public static void open(String name) {
         switch (name.toLowerCase()) {
             case "ie":
-                return new InternetExplorerDriver();
+                driver= new InternetExplorerDriver();
             case "edge":
-                return new EdgeDriver();
+                driver= new EdgeDriver();
             case "firefox":
-                return new FirefoxDriver();
+                driver= new FirefoxDriver();
             case "chrome":
-                return new ChromeDriver();
+                driver= new ChromeDriver();
             case "safari":
-                return new SafariDriver();
+                driver= new SafariDriver();
             case "chrome_headless": {
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.addArguments("--headless");
-                return new ChromeDriver(chromeOptions);
+                driver= new ChromeDriver(chromeOptions);
             }
             case "firefox_headless": {
                 FirefoxBinary firefoxBinary = new FirefoxBinary();
                 firefoxBinary.addCommandLineOptions("--headless");
                 FirefoxOptions firefoxOptions = new FirefoxOptions();
                 firefoxOptions.setBinary(firefoxBinary);
-                return new FirefoxDriver(firefoxOptions);
+                driver= new FirefoxDriver(firefoxOptions);
             }
             default:
                 throw new IllegalStateException("Undefine browser : " + name);
         }
 
+    }
+
+    public static void visit(String url){
+        driver.get(url);
+    }
+
+    public static void navigate(String url){
+        driver.navigate().to(url);
+    }
+
+    public static void reloadPage(){
+        driver.navigate().refresh();
+    }
+    public static void backToPreviousPage(){
+        driver.navigate().back();
     }
 }
