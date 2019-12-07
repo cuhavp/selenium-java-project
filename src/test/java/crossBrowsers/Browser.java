@@ -13,6 +13,8 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.How;
 
+import java.util.List;
+
 public class Browser {
     private static WebDriver driver;
 
@@ -90,11 +92,19 @@ public class Browser {
             click(how, locator);
         }
     }
-    
+
     public static void uncheck(How how, String locator){
         if(find(how, locator).isSelected()){
             click(how, locator);
         }
+    }
+
+    public static String text(How how, String locator){
+        return find(how, locator).getText();
+    }
+
+    public static List<WebElement> all(How how,String locator){
+        return driver.findElements(how.buildBy(locator));
     }
 
 }

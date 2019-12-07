@@ -9,5 +9,6 @@ public class ChromeHeadlessTest {
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--headless");
         WebDriver driver = new ChromeDriver(chromeOptions);
+
     }
 }
