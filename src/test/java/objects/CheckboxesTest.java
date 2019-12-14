@@ -1,6 +1,7 @@
-package crossBrowsers;
+package objects;
 
 import org.openqa.selenium.support.How;
+import supports.Browser;
 
 public class CheckboxesTest {
     public static void main(String[] args) {

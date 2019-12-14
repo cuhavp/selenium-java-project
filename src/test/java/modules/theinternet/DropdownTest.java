@@ -1,7 +1,8 @@
-package crossBrowsers;
+package modules.theinternet;
 
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.Select;
+import supports.Browser;
 
 import java.util.Arrays;
 

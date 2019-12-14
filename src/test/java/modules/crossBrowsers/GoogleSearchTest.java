@@ -1,8 +1,9 @@
-package crossBrowsers;
+package modules.crossBrowsers;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.How;
+import supports.Browser;
 
 public class GoogleSearchTest {
     public static void main(String[] args) {

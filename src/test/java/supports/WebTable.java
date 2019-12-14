@@ -1,4 +1,4 @@
-package crossBrowsers;
+package supports;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

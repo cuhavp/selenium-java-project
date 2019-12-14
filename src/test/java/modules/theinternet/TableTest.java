@@ -1,8 +1,9 @@
-package crossBrowsers;
+package modules.theinternet;
 
-import com.google.gson.internal.bind.util.ISO8601Utils;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.How;
+import supports.Browser;
+import supports.WebTable;
 
 public class TableTest {
     public static void main(String[] args) {

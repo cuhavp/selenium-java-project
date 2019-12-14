@@ -1,4 +1,4 @@
-package crossBrowsers;
+package supports;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
@@ -19,11 +19,9 @@ import java.util.List;
 
 public class Browser {
     private static WebDriver driver;
-
     public static WebDriver getDriver() {
         return driver;
     }
-
     public static void open(String name) {
         switch (name.toLowerCase()) {
             case "ie":

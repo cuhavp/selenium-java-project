@@ -1,4 +1,4 @@
-package crossBrowsers;
+package modules.crossBrowsers;
 
 import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;

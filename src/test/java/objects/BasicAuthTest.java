@@ -1,4 +1,6 @@
-package crossBrowsers;
+package objects;
+
+import supports.Browser;
 
 public class BasicAuthTest {
     public static void main(String[] args) {

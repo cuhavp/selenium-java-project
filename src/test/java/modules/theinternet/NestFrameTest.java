@@ -1,6 +1,7 @@
-package crossBrowsers;
+package modules.theinternet;
 
 import org.openqa.selenium.support.How;
+import supports.Browser;
 
 public class NestFrameTest {
     public static void main(String[] args) {
