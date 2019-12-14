@@ -1,8 +1,7 @@
 package crossBrowsers;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -10,9 +9,12 @@ import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.How;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 public class Browser {
@@ -80,6 +82,7 @@ public class Browser {
     }
 
     public static void fill(How how, String locator,String withText){
+        find(how, locator).clear();
         find(how, locator).sendKeys(withText);
     }
 
@@ -105,6 +108,31 @@ public class Browser {
 
     public static List<WebElement> all(How how,String locator){
         return driver.findElements(how.buildBy(locator));
+    }
+
+    public static void doubleClick(How how, String locator){
+        Actions dbClick = new Actions(driver);
+        dbClick.doubleClick(find(how, locator)).perform();
+    }
+
+    public static void hover(How how, String locator){
+        Actions hover = new Actions(driver);
+        hover.moveToElement(find(how, locator)).perform();
+    }
+
+    public static void captureScreenshot(){
+       File screenShot =  ( (TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+           try {
+               FileUtils.copyFile(screenShot, new File("./target/screenshot-"+ System.currentTimeMillis()+".png"));
+           } catch (IOException e) {
+               e.printStackTrace();
+           }
+    }
+
+    public static void close(){
+        if(driver != null){
+            driver.quit();
+        }
     }
 
 }

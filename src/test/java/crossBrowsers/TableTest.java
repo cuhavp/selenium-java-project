@@ -1,5 +1,7 @@
 package crossBrowsers;
 
+import com.google.gson.internal.bind.util.ISO8601Utils;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.How;
 
 public class TableTest {
@@ -7,24 +9,13 @@ public class TableTest {
         Browser.open("chrome");
         Browser.visit("https://the-internet.herokuapp.com/tables");
 
-        int totalColumns = Browser.all(How.XPATH,"//table[@id='table1']/thead/tr/th").size();
-        int totalRows = Browser.all(How.XPATH,"//table[@id='table1']/tbody/tr").size();
+        WebTable table1 = new WebTable(Browser.find(How.XPATH,"//table[@id='table1']"));
+        System.out.println("number of rows : " + table1.getTotalRows());
+        System.out.println("number of columns : " + table1.getTotalColumns());
 
-//       for (int row =1; row <= totalRows;row++){
-//           for(int column = 1;column<= totalColumns;column++){
-//               System.out.println(Browser.text(How.XPATH,String.format("//table[@id='table1']/tbody/tr[%d]/td[%d]",row,column)));
-//           }
-//       }
+      for (WebElement cell : table1.getColumn(1)){
+          System.out.println(cell.getText());
+      }
 
-        //todo: get list due
-
-        double[] due = new double[ totalRows];
-        String dueValue = "";
-        for (int row =1;row<=totalRows;row++){
-            dueValue = Browser.text(How.XPATH,String.format("//table[@id='table1']/tbody/tr[%d]/td[4]",row));
-            dueValue=dueValue.replace("$","");
-            due[row-1] = Double.valueOf(dueValue);
-        }
-        
     }
 }
