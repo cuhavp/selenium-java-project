@@ -1,18 +1,30 @@
 package libraries;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.LoadableComponent;
 import supports.Browser;
 
 import java.util.List;
 
-public class TodoFunctions {
+public class TodoFunctions extends LoadableComponent<TodoFunctions> {
 
     public TodoFunctions() {
         PageFactory.initElements(Browser.getDriver(), this);
+    }
+
+    @Override
+    public void load() {
+       Browser.visit("http://todomvc.com/examples/vanillajs");
+    }
+
+    @Override
+    protected void isLoaded() throws Error {
+
     }
 
     /*********************************
@@ -49,17 +61,18 @@ public class TodoFunctions {
         return Browser.find(How.XPATH,String.format("//label[.='%s']/following-sibling::button", name));
     }
 
-    public void editTodoName(String oldName, String newName) {
-        Browser.doubleClick(getTask(oldName));
-        updateTask(oldName).sendKeys(newName+"\n");
-    }
-
     /************************
      Exposing user operations
      ***********************/
 
-    public void createNewTodo(String taskName) {
+    public TodoFunctions editTodoName(String oldName, String newName) {
+        Browser.doubleClick(getTask(oldName));
+        updateTask(oldName).sendKeys(newName+"\n");
+        return this;
+    }
+    public TodoFunctions createNewTodo(String taskName) {
         new_todo.sendKeys(taskName + "\n");
+        return this;
     }
 
 
