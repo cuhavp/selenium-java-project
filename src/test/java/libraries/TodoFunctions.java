@@ -7,24 +7,23 @@ import supports.Browser;
 import java.util.List;
 
 public class TodoFunctions {
-
     /**
-     * Perform manual tests --> define common functions --> get locator objects
-     * 1. create new to do
-     * 2. update name
-     * 3. mark done
-     * 4. delete
-     * 5. show all to dos
-     * 6. show active to dos
-     * 7. show completed to dos
-     * 8. clear completed to dos
-     * 9. count remain active to dos
-     * 10. check existing to do
-     * 11. get to dos -->
+     * CODING CONVENSION
+     *
+     * SUFFIX:
+     *  - _TXT -->
+     *  - _BTN ->
+     *  - _LBL
+     *  - _LINK
+     *  - _RAD
+     *
      */
 
+    private String NEW_TODO_TXT = "new-todo";
+
+
     public void createNewTodo(String taskName) {
-        Browser.fill(How.CLASS_NAME, "new-todo", taskName + "\n");
+        Browser.fill(How.CLASS_NAME, NEW_TODO_TXT, taskName + "\n");
     }
 
     public void editTodoName(String oldName, String newName) {
@@ -51,5 +50,23 @@ public class TodoFunctions {
     public List<WebElement> getTodo(String taskName){
         return Browser.all(How.XPATH,String.format("//label[.='%s']", taskName));
     }
+    public void showAll(){
+        Browser.click(How.LINK_TEXT,"All");
+    }
+    public void showActive(){
+        Browser.click(How.LINK_TEXT,"Active");
+    }
+    public void showCompleted(){
+        Browser.click(How.LINK_TEXT,"Completed");
+    }
+
+    public void clearCompleted(){
+        Browser.click(How.CLASS_NAME,"clear-completed");
+    }
+
+    public int countRemainTodos(){
+        return Integer.parseInt(Browser.text(How.XPATH,"//*[@class='todo-count']/strong"));
+    }
+
 }
 
