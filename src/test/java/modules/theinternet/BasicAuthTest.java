@@ -1,4 +1,4 @@
-package objects;
+package modules.theinternet;
 
 import supports.Browser;
 

@@ -1,4 +1,4 @@
-package objects;
+package modules.theinternet;
 
 import org.openqa.selenium.support.How;
 import supports.Browser;

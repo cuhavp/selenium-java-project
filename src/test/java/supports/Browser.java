@@ -79,13 +79,24 @@ public class Browser {
         return driver.findElement(how.buildBy(locator));
     }
 
+    public static WebElement find(By locator) {
+        return driver.findElement(locator);
+    }
+
     public static void fill(How how, String locator,String withText){
         find(how, locator).clear();
         find(how, locator).sendKeys(withText);
     }
+    public static void fill(By locator,String withText){
+        find(locator).clear();
+        find(locator).sendKeys(withText);
+    }
 
     public static void click(How how, String locator){
         find(how, locator).click();
+    }
+    public static void click(By locator){
+        find(locator).click();
     }
 
     public static void check(How how, String locator){
@@ -104,18 +115,34 @@ public class Browser {
         return find(how, locator).getText();
     }
 
+    public static String text(By locator){
+        return find(locator).getText();
+    }
     public static List<WebElement> all(How how,String locator){
         return driver.findElements(how.buildBy(locator));
     }
+
+    public static List<WebElement> all(By locator){
+        return driver.findElements(locator);
+    }
+
 
     public static void doubleClick(How how, String locator){
         Actions dbClick = new Actions(driver);
         dbClick.doubleClick(find(how, locator)).perform();
     }
-
+    public static void doubleClick(By locator){
+        Actions dbClick = new Actions(driver);
+        dbClick.doubleClick(find(locator)).perform();
+    }
     public static void hover(How how, String locator){
         Actions hover = new Actions(driver);
         hover.moveToElement(find(how, locator)).perform();
+    }
+
+    public static void hover(By locator){
+        Actions hover = new Actions(driver);
+        hover.moveToElement(find(locator)).perform();
     }
 
     public static void captureScreenshot(){
