@@ -1,0 +1,17 @@
+<suite name="todo MVC">
+    <test name="Create">
+        <classes>
+            <class name="modules.mvc.TodoMVCTest"/>
+        </classes>
+    </test>
+    <test name="Edit">
+        <classes>
+            <class name="modules.mvc.TodoMVCTest"/>
+        </classes>
+    </test>
+    <test name="Delete">
+        <classes>
+            <class name="modules.mvc.TodoMVCTest"/>
+        </classes>
+    </test>
+</suite>
