@@ -135,6 +135,11 @@ public class Browser {
         Actions dbClick = new Actions(driver);
         dbClick.doubleClick(find(locator)).perform();
     }
+
+    public static void doubleClick(WebElement element){
+        Actions dbClick = new Actions(driver);
+        dbClick.doubleClick(element).perform();
+    }
     public static void hover(How how, String locator){
         Actions hover = new Actions(driver);
         hover.moveToElement(find(how, locator)).perform();
@@ -145,6 +150,10 @@ public class Browser {
         hover.moveToElement(find(locator)).perform();
     }
 
+    public static void hover(WebElement element){
+        Actions hover = new Actions(driver);
+        hover.moveToElement(element).perform();
+    }
     public static void captureScreenshot(){
        File screenShot =  ( (TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
            try {
