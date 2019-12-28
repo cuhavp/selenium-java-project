@@ -42,7 +42,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>./src/test/java/configurations/mvn-test.xml</suiteXmlFile>
+                        <suiteXmlFile>./src/test/java/configurations/${test.suite}.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>

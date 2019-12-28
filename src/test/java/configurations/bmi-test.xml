@@ -1,0 +1,15 @@
+<suite name="Body mass index calculator">
+    <test name="Safari Browser">
+        <parameter name="browser" value="safari"/>
+        <classes>
+            <class name="modules.bmi.CalculatorTest"/>
+        </classes>
+    </test>
+    <test name="Chrome Browser">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="modules.bmi.CalculatorTest"/>
+        </classes>
+    </test>
+
+</suite>
