@@ -6,7 +6,7 @@
 
     <groupId>com.tvn</groupId>
     <artifactId>seleniumvn</artifactId>
-    <version>24</version>
+    <version>2021</version>
     <dependencies>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -35,15 +35,6 @@
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <configuration>
-                    <suiteXmlFiles>
-                        <suiteXmlFile>./src/test/java/configurations/${test.suite}.xml</suiteXmlFile>
-                    </suiteXmlFiles>
                 </configuration>
             </plugin>
         </plugins>
