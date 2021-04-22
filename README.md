@@ -142,3 +142,14 @@ Repo này chứa những bài tập và phần cấu hình sẵn cơ bản để
 * Enter a new todo name
 * Verify a todo added
 ---
+12. Ecommerce sample test
+* Open Browser
+* Navigator to [Ebay item's page](https://www.ebay.com/p/5034224981?iid=153638834105&var=453955077516)
+* Validate the price
+* Click **Buy It Now** button
+* On the SigIn page, click **Continue as a guest**
+* Fill Shipping info
+* Validate **Subtotal** price
+* Click **Continue** button
+* Validate **Total** price
+----
