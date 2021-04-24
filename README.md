@@ -67,10 +67,10 @@ Repo này chứa những bài tập và phần cấu hình sẵn cơ bản để
 2. [Check to a box](https://cuhavp.github.io/checkboxes/)
 * Open browser
 * Navigate to https://the-internet.herokuapp.com/checkboxes
-* Check on "checkbox1"
-* Verify "checkbox1" is checked
-* Check on "checkbox2"
-* Verify "checkbox2" is checked
+* Check on **checkbox1**
+* Verify **checkbox1** is `checked`
+* Check on **checkbox2**
+* Verify **checkbox2** is `checked`
 ---
 3. [Select option](https://cuhavp.github.io/drop-down/)
 * Open browser
@@ -104,12 +104,16 @@ Repo này chứa những bài tập và phần cấu hình sẵn cơ bản để
 * Open browser
 * Navigate to https://the-internet.herokuapp.com/nested_frames
 * Verify Text present:
-      ```
-      LEFT
-      RIGHT
-      MIDDLE
-      BOTTOM
-      ```
+      
+```
+          LEFT
+  
+          RIGHT
+  
+          MIDDLE
+  
+          BOTTOM
+```      
 ---
 7. JavaScript Alerts
 * Open browser
