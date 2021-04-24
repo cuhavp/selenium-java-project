@@ -36,7 +36,6 @@ public class FormAuthenticationTest {
         Assert.assertEquals(driver.getCurrentUrl(), "https://the-internet.herokuapp.com/secure");
 
         Assert.assertTrue(driver.findElement(By.id("flash-messages")).isDisplayed()); //You logged into a secure area!
-
     }
 
     @Test
