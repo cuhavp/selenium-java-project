@@ -1,26 +1,22 @@
 package testcases;
 
+import bases.BaseTest;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
+import pages.BmiPage;
 
-public class BmiTest {
-    WebDriver driver;
-
-    @BeforeClass
-    void setUp() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.get("https://www.calculator.net/bmi-calculator.html");
-    }
-
+public class BmiTest extends BaseTest {
+    BmiPage bmiPage;
     @BeforeMethod
     void cleanUpForm() {
-        driver.findElement(By.xpath("//a[.='Metric Units']")).click();
-        driver.findElement(By.className("clearbtn")).click();
+        bmiPage = new BmiPage(driver);
+        bmiPage.open();
+        bmiPage.selectMetricTab();
+        bmiPage.clear();
     }
 
     @DataProvider
@@ -47,22 +43,8 @@ public class BmiTest {
 
     @Test(dataProvider ="testdata" )
     void tc01(String age,String gender,String height,String weight,String expected) {
-        driver.findElement(By.id("cage")).sendKeys(age);
-
-        if (gender.equalsIgnoreCase("male")){
-            driver.findElement(By.id("csex1")).click();
-        }else  driver.findElement(By.id("csex2")).click();
-
-        driver.findElement(By.id("cheightmeter")).sendKeys(height);
-        driver.findElement(By.id("ckg")).sendKeys(weight);
-        driver.findElement(By.xpath("//input[@value='Calculate']")).click();
-
-        String actualResult = driver.findElement(By.className("rightresult")).getText();
-        Assert.assertTrue(actualResult.contains(expected));
+        bmiPage.calculate(age, gender, height, weight);
+        Assert.assertTrue(bmiPage.getResult().contains(expected));
     }
 
-    @AfterClass
-    void tearDown(){
-        driver.quit();
-    }
 }
