@@ -157,3 +157,16 @@ Repo này chứa những bài tập và phần cấu hình sẵn cơ bản để
 * Click **Continue** button
 * Validate **Total** price
 ----
+13. Basic authentication
+----
+14. Broken images
+----
+16. Drag & drop
+----
+18. Horizontal slider
+----
+19. Dynamic content
+----
+20. Dynamic loading
+----
+21. Input (from keyboard)
