@@ -1,11 +1,11 @@
 package pages;
 
+import bases.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-public class FormAuthenticationPage {
-    WebDriver driver;
+public class FormAuthenticationPage extends BasePage {
 
     /**
      * Suffix:
@@ -20,17 +20,13 @@ public class FormAuthenticationPage {
     By passwordTxt = By.id("password");
     By submitBtn = By.xpath("//*[@type='submit']");
 
-    public FormAuthenticationPage(WebDriver driver) {
-        this.driver = driver;
-    }
-
     public void open(){
-        driver.get("https://the-internet.herokuapp.com/login");
+        visit("https://the-internet.herokuapp.com/login");
     }
 
     public void login(String username, String password){
-        driver.findElement(usernameTxt).sendKeys(username);
-        driver.findElement(passwordTxt).sendKeys(password);
-        driver.findElement(submitBtn).click();
+        fill(usernameTxt,username);
+        fill(passwordTxt,password);
+        click(submitBtn);
     }
 }

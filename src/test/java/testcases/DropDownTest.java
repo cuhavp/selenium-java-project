@@ -1,26 +1,19 @@
 package testcases;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+import bases.BaseTest;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class DropDownTest {
-    WebDriver driver;
-    @BeforeClass
-    void setUp(){
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+public class DropDownTest  extends BaseTest {
+
+    @BeforeMethod
+    void load(){
         driver.get("https://the-internet.herokuapp.com/dropdown");
-
     }
-
     @Test
     void option1ShouldSelected(){
         WebElement select = driver.findElement(By.id("dropdown"));
@@ -32,8 +25,4 @@ public class DropDownTest {
         Assert.assertTrue(driver.findElement(By.xpath("//select[@id='dropdown']/option[text()='Option 1']")).isSelected());// text()
     }
 
-    @AfterClass
-    void tearDown(){
-        driver.quit();
-    }
 }

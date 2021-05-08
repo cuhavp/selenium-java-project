@@ -16,20 +16,18 @@ import java.io.IOException;
 
 public class BaseTest {
 
-    public WebDriver driver;
-
     @BeforeClass
     public void setUp() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        Browser.launch("chrome");
     }
 
     @AfterMethod
     public void captureScreen(ITestResult testResult) throws IOException {
         if(!testResult.isSuccess()){
-            File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            File file = ((TakesScreenshot) Browser.getDriver()).getScreenshotAs(OutputType.FILE);
             File DestFile=new File("./target/screenshot/"
                     +testResult.getMethod().getMethodName()
+                    +  "-"
                     +System.currentTimeMillis()+".png");
 
             FileUtils.copyFile(file, DestFile);
@@ -38,6 +36,6 @@ public class BaseTest {
 
     @AfterClass
     public void tearDown(){
-        driver.quit();
+        Browser.getDriver().quit();
     }
 }

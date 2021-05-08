@@ -13,7 +13,7 @@ public class BmiTest extends BaseTest {
     BmiPage bmiPage;
     @BeforeMethod
     void cleanUpForm() {
-        bmiPage = new BmiPage(driver);
+        bmiPage = new BmiPage();
         bmiPage.open();
         bmiPage.selectMetricTab();
         bmiPage.clear();

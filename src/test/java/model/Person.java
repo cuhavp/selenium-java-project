@@ -1,4 +1,4 @@
-package testcases;
+package model;
 
 
 import lombok.AllArgsConstructor;
