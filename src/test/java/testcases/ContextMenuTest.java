@@ -16,6 +16,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import static bases.Browser.getDriver;
+
 public class ContextMenuTest extends BaseTest {
     Actions mouse;
     WebDriverWait wait;
@@ -23,13 +25,13 @@ public class ContextMenuTest extends BaseTest {
     @BeforeMethod
     void load() {
         WebDriverManager.chromedriver().setup();
-        mouse = new Actions(driver);
-        wait = new WebDriverWait(driver, 10);
+        mouse = new Actions(getDriver());
+        wait = new WebDriverWait(getDriver(), 10);
     }
 
     @Test
     void shouldJSAlertPopupAppear(){
-        WebElement rectangle = driver.findElement(By.id("hot-spot"));
+        WebElement rectangle = getDriver().findElement(By.id("hot-spot"));
         mouse.contextClick(rectangle).perform();
 
         Alert alert = wait.until(ExpectedConditions.alertIsPresent());

@@ -10,13 +10,15 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
+import static bases.Browser.getDriver;
+
 public class HoverTest extends BaseTest {
     Actions mouse;
 
     @BeforeMethod
     void load() {
-        driver.get("https://the-internet.herokuapp.com/hovers");
-        mouse = new Actions(driver);
+        getDriver().get("https://the-internet.herokuapp.com/hovers");
+        mouse = new Actions(getDriver());
     }
 
     @DataProvider
@@ -30,7 +32,7 @@ public class HoverTest extends BaseTest {
 
     @Test(dataProvider = "avatar")
     void avatarCaption(int personIndex, String caption) {
-        WebElement person1 = driver.findElements(By.className("figure")).get(personIndex);
+        WebElement person1 = getDriver().findElements(By.className("figure")).get(personIndex);
         mouse.moveToElement(person1).perform(); // --> hover
 
         WebElement person1Caption = person1
