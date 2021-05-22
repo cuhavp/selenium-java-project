@@ -67,10 +67,10 @@ Repo này chứa những bài tập và phần cấu hình sẵn cơ bản để
 2. [Check to a box](https://cuhavp.github.io/checkboxes/)
 * Open browser
 * Navigate to https://the-internet.herokuapp.com/checkboxes
-* Check on "checkbox1"
-* Verify "checkbox1" is checked
-* Check on "checkbox2"
-* Verify "checkbox2" is checked
+* Check on **checkbox1**
+* Verify **checkbox1** is `checked`
+* Check on **checkbox2**
+* Verify **checkbox2** is `checked`
 ---
 3. [Select option](https://cuhavp.github.io/drop-down/)
 * Open browser
@@ -104,12 +104,16 @@ Repo này chứa những bài tập và phần cấu hình sẵn cơ bản để
 * Open browser
 * Navigate to https://the-internet.herokuapp.com/nested_frames
 * Verify Text present:
-      ```
-      LEFT
-      RIGHT
-      MIDDLE
-      BOTTOM
-      ```
+      
+```
+          LEFT
+  
+          RIGHT
+  
+          MIDDLE
+  
+          BOTTOM
+```      
 ---
 7. JavaScript Alerts
 * Open browser
@@ -142,3 +146,27 @@ Repo này chứa những bài tập và phần cấu hình sẵn cơ bản để
 * Enter a new todo name
 * Verify a todo added
 ---
+12. Ecommerce sample test
+* Open Browser
+* Navigator to [Ebay item's page](https://www.ebay.com/p/5034224981?iid=153638834105&var=453955077516)
+* Validate the price
+* Click **Buy It Now** button
+* On the SigIn page, click **Continue as a guest**
+* Fill Shipping info
+* Validate **Subtotal** price
+* Click **Continue** button
+* Validate **Total** price
+----
+13. Basic authentication
+----
+14. Broken images
+----
+16. Drag & drop
+----
+18. Horizontal slider
+----
+19. Dynamic content
+----
+20. Dynamic loading
+----
+21. Input (from keyboard)

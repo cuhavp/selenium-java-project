@@ -1,0 +1,13 @@
+<suite name="Form Authentication">
+    <test name="credentials">
+        <parameter name="browser" value="chrome"/>
+        <groups>
+            <run>
+                <exclude name="smoke"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="testcases.FormAuthenticationTest"/>
+        </classes>
+    </test>
+</suite>
