@@ -10,18 +10,20 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 
 import java.io.File;
 import java.io.IOException;
 
 public class BaseTest {
 
-    @BeforeClass
-    public void setUp() {
-        Browser.launch("chrome");
+    @Parameters({"browser"})
+    @BeforeClass(alwaysRun = true)
+    public void setUp(String name) {
+        Browser.launch(name);
     }
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void captureScreen(ITestResult testResult) throws IOException {
         if(!testResult.isSuccess()){
             File file = ((TakesScreenshot) Browser.getDriver()).getScreenshotAs(OutputType.FILE);
@@ -34,7 +36,7 @@ public class BaseTest {
         }
     }
 
-    @AfterClass
+    @AfterClass(alwaysRun = true)
     public void tearDown(){
         Browser.getDriver().quit();
     }

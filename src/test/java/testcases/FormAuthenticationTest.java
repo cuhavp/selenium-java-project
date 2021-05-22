@@ -18,17 +18,15 @@ public class FormAuthenticationTest extends BaseTest {
 
     FormAuthenticationPage formAuthenticationPage;
 
-    @BeforeClass
-    void setup() {
-        formAuthenticationPage = new FormAuthenticationPage();
-    }
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     void load() {
+        formAuthenticationPage = new FormAuthenticationPage();
         formAuthenticationPage.open();
     }
 
-    @Test
+
+    @Test(groups = {"smoke"})
     void validCredential() {
         formAuthenticationPage.login("tomsmith", "SuperSecretPassword!");
         Assert.assertEquals(getDriver().getCurrentUrl(), "https://the-internet.herokuapp.com/secure");

@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 public class JavaScriptAlertTest {
     WebDriver driver;
 
-    @BeforeClass
+    @BeforeClass(alwaysRun = true)
     void setUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
@@ -28,7 +28,7 @@ public class JavaScriptAlertTest {
         Assert.assertEquals(result,"You successfully clicked an alert");
     }
 
-    @Test
+    @Test(groups = {"smoke"})
     void dismissForJsConfirm(){
         driver.findElement(By.xpath("//button[.='Click for JS Confirm']")).click();
         driver.switchTo().alert().dismiss(); // ~ click on Cancel button on alert popup

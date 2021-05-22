@@ -4,6 +4,8 @@ import bases.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import static bases.Browser.*;
+
 public class BmiPage extends BasePage {
     By metricTab = By.xpath("//a[.='Metric Units']");
     By ageTxt = By.id("cage");
